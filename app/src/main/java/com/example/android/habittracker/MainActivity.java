@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
         //just to see something
         insertDive();
-        readCaveDives();
+        displayCaveDives(readCaveDives());
     }
 
     private void insertDive() {
@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void readCaveDives() {
+    private Cursor readCaveDives() {
         //get readable db instance
         SQLiteDatabase db = mDiveDbHelper.getReadableDatabase();
 
@@ -78,7 +78,11 @@ public class MainActivity extends AppCompatActivity {
         //Instantiate a curser object containing colum projection and "where" constraint
         Cursor cursor = db.query(DiveContract.DiveLog.TABLE_NAME, projection,
                 whereClause, whereArgs, null, null, null);
+        //and return it for further use in display methods
+        return cursor;
+    }
 
+    private void displayCaveDives(Cursor cursor) {
         //Displaying the cave dives, todo: add UI to enter more dives
         TextView displayCaveDives = (TextView) findViewById(R.id.text);
         try {
