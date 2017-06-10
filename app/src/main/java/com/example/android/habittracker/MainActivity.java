@@ -25,6 +25,10 @@ public class MainActivity extends AppCompatActivity {
 
         //open helper instance to access DB
         mDiveDbHelper = new DiveDbHelper(this);
+
+        //just to see something
+        insertDive();
+        readCaveDives();
     }
 
     private void insertDive() {
@@ -78,11 +82,11 @@ public class MainActivity extends AppCompatActivity {
         //Displaying the cave dives, todo: add UI to enter more dives
         TextView displayCaveDives = (TextView) findViewById(R.id.text);
         try {
-            displayCaveDives.setText("# of Cave Dives: " + cursor.getCount());
+            displayCaveDives.setText("# of Cave Dives: " + cursor.getCount() + "\n" + "\n");
             displayCaveDives.append(DiveContract.DiveLog._ID + ", " +
                     DiveContract.DiveLog.DIVE_SITE + ", " +
                     DiveContract.DiveLog.DEPTH + ", " +
-                    DiveContract.DiveLog.DIVE_TIME + "\n");
+                    DiveContract.DiveLog.DIVE_TIME);
 
             //Loop through cursor object to obtain the data
             while (cursor.moveToNext()) {

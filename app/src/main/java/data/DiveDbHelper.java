@@ -23,10 +23,10 @@ public class DiveDbHelper extends SQLiteOpenHelper {
         String SQL_CREATE =
                 "CREATE TABLE " +  DiveContract.DiveLog.TABLE_NAME + " (" +
                         DiveContract.DiveLog._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
-                        DiveContract.DiveLog.DIVE_SITE + "TEXT NOT NULL," +
-                        DiveContract.DiveLog.DIVE_TYPE + "INTEGER NOT NULL" +
-                        DiveContract.DiveLog.DEPTH + "INTEGER" +
-                        DiveContract.DiveLog.DIVE_TIME + "INTEGER)";
+                        DiveContract.DiveLog.DIVE_SITE + " TEXT NOT NULL," +
+                        DiveContract.DiveLog.DIVE_TYPE + " INTEGER NOT NULL," +
+                        DiveContract.DiveLog.DEPTH + " INTEGER," +
+                        DiveContract.DiveLog.DIVE_TIME + " INTEGER)";
         db.execSQL(SQL_CREATE);
     }
     @Override
